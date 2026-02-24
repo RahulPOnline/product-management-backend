@@ -1,7 +1,10 @@
 const Product = require("../models/productModel")
+const applyAPIFeatures = require("../utils/apiFeatures")
 
 const getProducts = async (req, res) => {
     try {
+        let query = Product.find()
+        query = applyAPIFeatures(query, req.query)
         const products = await query
         res.json(products)
     } catch (error) {
