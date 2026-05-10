@@ -1,6 +1,5 @@
 const applyAPIFeatures = (query, queryString) => {
 
-  
   // PAGINATION
   const page = Math.max(Number(queryString.page) || 1, 1);
   const limit = Math.max(Number(queryString.limit) || 10, 1);

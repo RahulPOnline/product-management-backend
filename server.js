@@ -11,15 +11,18 @@ connectDB()
 const app = express()
 app.use(express.json())
 
-app.use("/products", productRouter)
-
-
-app.use(notFound)
-app.use(errorHandler)
-
 app.get("/", (req, res) => {
     res.send("Homepage")
 })
+
+app.use("/products", productRouter)
+
+// 404 middleware
+app.use(notFound)
+
+// Global error handler
+app.use(errorHandler)
+
 
 
 
